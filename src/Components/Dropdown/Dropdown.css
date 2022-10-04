@@ -10,11 +10,20 @@
 
 .dropdown-input {
   width: 100%;
-  padding: 5px;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   user-select: none;
+}
+
+.dropdown-label {
+  position: absolute;
+  font-size: 12px;
+  background-color: #ffffff;
+  z-index: 1;
+  transform: translate(10px, -10px);
+  padding: 2px;
 }
 
 .dropdown-menu {
@@ -28,7 +37,7 @@
 }
 
 .dropdown-item {
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
   font-size: 20px;
 }
@@ -38,7 +47,7 @@
 }
 
 .dropdown-item:hover {
-  background-color: #bbbbbb;
+  background-color: #d7d3d3;
 }
 
 .dropdown-tags {
@@ -55,7 +64,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 80px;
 }
 
 .dropdown-tag-close {

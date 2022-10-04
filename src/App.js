@@ -27,11 +27,13 @@ function App() {
         <div className="dropdowns-section">
           <Dropdown
             placeHolder="Select a Number"
+            dropdownLabel="Age"
             options={singleSelectOptions}
             onChange={() => {}}
           />
           <Dropdown
             placeHolder="Multi-Select Names"
+            dropdownLabel="Names"
             options={multiSelectOptions}
             isMulti={true}
             onChange={() => {}}

@@ -3,8 +3,9 @@ import DropdownIcon from "./icons/DropdownIcon.js";
 import DropupIcon from "./icons/DropupIcon.js";
 import CloseIcon from "./icons/CloseIcon.js";
 import "./Dropdown.css";
+import PropTypes from 'prop-types'
 
-const Dropdown = ({ placeHolder, options, isMulti, onChange }) => {
+const Dropdown = ({ placeHolder, dropdownLabel, options, isMulti, onChange }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [value, setValue] = useState(isMulti ? [] : null);
 
@@ -54,7 +55,7 @@ const Dropdown = ({ placeHolder, options, isMulti, onChange }) => {
   const removeOption = (option) => {
     return value.filter((item) => item.value !== option.value);
   };
-  
+
   const onTagRemove = (e, option) => {
     e.stopPropagation();
     setValue(removeOption(option));
@@ -98,11 +99,12 @@ const Dropdown = ({ placeHolder, options, isMulti, onChange }) => {
             </div>
           </div>
         </div>
+        <div className="dropdown-label">
+          {dropdownLabel}
+        </div>
       </div>
       {menuOpen && (
-        <div
-          className="dropdown-menu"
-        >
+        <div className="dropdown-menu">
           {options.map((option) => (
             <div
               key={option.value}
@@ -116,6 +118,14 @@ const Dropdown = ({ placeHolder, options, isMulti, onChange }) => {
       )}
     </div>
   );
+};
+
+Dropdown.propTypes = {
+  placeHolder: PropTypes.string,
+  dropdownLabel: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.object),
+  isMulti: PropTypes.bool,
+  onChange: PropTypes.func,
 };
 
 export default Dropdown;
